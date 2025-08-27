@@ -34,28 +34,31 @@
   .nav a{color:#fff; text-decoration:none; font-weight:600}
   .nav a:hover{color:#8ab6ff}
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="home">
-    <div class="bg"></div>
-    <div class="veil"></div>
-
-    <div class="frame-wrap">
-      <div class="frame"></div>
-      <div class="hero-content">
-        <div class="name"><span class="accent" style="color:var(--brand)">Yogesh</span> Jakhar</div>
-        <div class="tag">Showcasing Leadership</div>
-        <div class="subtag">From Sikar, Rajasthan, India</div>
-      </div>
-      <div class="portrait">
-        <img src="images/portrait.png" alt="Yogesh Jakhar">
-      </div>
-      <div class="badge">YJ</div>
-    </div>
-
-    <div class="skew-edge"></div>
-  </section>
-
-  
+  /* ===== HERO ===== */
+  .hero{position:relative; height:100vh; display:grid; place-items:center; padding-top:66px; overflow:hidden}
+  .hero .bg{
+    position:absolute; inset:-6px;
+    background:url("images/bg.jpg") center/cover no-repeat;
+    filter:grayscale(100%) blur(5px) brightness(.55); transform:scale(1.04);
+    z-index:-2;
+  }
+  .hero .veil{
+    position:absolute; inset:0; background:linear-gradient(0deg, rgba(15,23,42,.8), rgba(15,23,42,.45) 40%, rgba(15,23,42,.35)); z-index:-1;
+  }
+  .frame-wrap{ position:relative; width:min(920px,92vw); aspect-ratio:16/8.8; display:grid; place-items:center; }
+  .frame{ position:absolute; inset:6% 6%; border:12px solid rgba(255,255,255,.9); border-radius:10px; }
+  .frame::before,.frame::after{ content:""; position:absolute; width:16%; height:12%; border:10px solid rgba(255,255,255,.45); }
+  .frame::before{left:-28px; top:-28px; border-right:none; border-bottom:none; border-radius:10px 0 0 0}
+  .frame::after {right:-28px; bottom:-28px; border-left:none; border-top:none; border-radius:0 0 10px 0}
+  .hero-content{ position:relative; text-align:center; padding:22px }
+  .name{ font-size:clamp(28px,5vw,56px); font-weight:800; letter-spacing:.3px }
+  .name .accent{ color:var(--brand) }
+  .tag{ font-size:clamp(16px,2.2vw,24px); color:#e9efff; margin-top:8px }
+  .subtag{ font-size:clamp(14px,1.9vw,20px); color:#cfdaff; margin-top:6px }
+  .portrait{ position:absolute; left:50%; transform:translateX(-50%); width:min(380px,60vw); bottom:-6%; border-radius:18px; overflow:hidden; border:1px solid var(--stroke); box-shadow:0 25px 50px rgba(0,0,0,.55); }
+  .portrait img{width:100%; height:auto; display:block}
+  .badge{ position:absolute; left:50%; transform:translateX(-50%); bottom:-76px; width:84px; height:84px; border-radius:50%; background:#ffffffdd; color:#0f172a; display:grid; place-items:center; font-weight:800; box-shadow:0 16px 30px rgba(0,0,0,.35); }
+  .skew-edge{ position:absolute; left:-5vw; right:-5vw; bottom:-8vh; height:18vh; background:#fff; transform:skewY(-6deg); opacity:.95; }
   /* ===== ABOUT ===== */
   .about{ background:var(--panel); border-top:1px solid var(--stroke); padding:80px 8vw 50px }
   .about .title{ text-transform:uppercase; letter-spacing:.18em; color:#9ec1ff; font-weight:700 }

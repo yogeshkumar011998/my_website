@@ -16,9 +16,6 @@
       --text:#e7e9ee; --muted:#aab0bc; --brand:#6ea8ff; --green:#22c55e;
       --blur:16px;
     }
-    @media (prefers-color-scheme:light){
-      :root{--bg:#f6f7fb; --glass:rgba(0,0,0,.06); --stroke:rgba(0,0,0,.08); --text:#0e1327; --muted:#4c5268;}
-    }
     *{box-sizing:border-box}
     body{
       margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; color:var(--text);
@@ -34,9 +31,7 @@
       border:1px solid var(--stroke); border-radius:26px; background:var(--glass);
       backdrop-filter:blur(var(--blur)); -webkit-backdrop-filter:blur(var(--blur));
       box-shadow:0 30px 60px rgba(0,0,0,.35); overflow:hidden;
-      animation:fade .5s ease both;
     }
-    @keyframes fade{from{opacity:0; transform:translateY(8px)}}
     header{
       padding:30px; display:grid; grid-template-columns:1fr 160px; gap:24px; align-items:center;
       background:linear-gradient(135deg, rgba(110,168,255,.18), rgba(139,92,246,.16), rgba(236,72,153,.12));
@@ -62,7 +57,7 @@
     .photo img{width:100%; height:100%; object-fit:cover; transform:scale(1.02); transition:transform .35s,opacity .35s}
     .photo:hover img{transform:scale(1.06); opacity:.96}
     .contact{
-      display:grid; grid-template-columns:1.2fr .8fr; gap:16px; align-items:center;
+      display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start;
     }
     .box{border:1px solid var(--stroke); border-radius:16px; padding:18px; background:rgba(255,255,255,.06)}
     .emailRow{display:flex; gap:10px; align-items:center; margin-top:10px}
@@ -119,6 +114,9 @@
           <input class="input" id="email" value="contactme@yogeshjakhar.com" readonly>
           <button class="copy" onclick="copyEmail()">Copy</button>
           <a class="mailto" href="mailto:contactme@yogeshjakhar.com">Send Mail</a>
+        </div>
+        <div style="margin-top:16px; color:var(--muted); font-weight:600;">
+          📍 Location: Sikar, Rajasthan, India
         </div>
       </div>
       <div class="box">

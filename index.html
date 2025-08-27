@@ -161,26 +161,66 @@
 
   </div>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="home">
-    <div class="bg"></div>
-    <div class="veil"></div>
+  <!-- ===== HERO (inline styles only) ===== -->
+<section id="home"
+  style="position:relative; min-height:100vh; padding-top:66px; overflow:hidden; display:grid; place-items:center;">
 
-    <div class="frame-wrap">
-      <div class="frame"></div>
-      <div class="hero-content">
-        <div class="name"><span class="accent" style="color:var(--brand)">Yogesh</span> Jakhar</div>
-    
-        <div class="subtag">From Sikar, Rajasthan, India</div>
+  <!-- Gradient BG (no bg.jpg) -->
+  <div style="
+    position:absolute; inset:0;
+    background:linear-gradient(135deg,#000000 0%, #0f172a 50%, #1e293b 100%);
+    z-index:0;">
+  </div>
+
+  <!-- Dark veil for readability -->
+  <div style="
+    position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(15,23,42,.85), rgba(15,23,42,.5) 40%, rgba(15,23,42,.3));
+    z-index:1;">
+  </div>
+
+  <!-- Frame + content wrapper -->
+  <div style="position:relative; z-index:2; width:min(920px,92vw); aspect-ratio:16/8.8; display:grid; place-items:center;">
+
+    <!-- White frame -->
+    <div style="position:absolute; inset:6% 6%; border:12px solid rgba(255,255,255,.9); border-radius:10px;"></div>
+
+    <!-- Name + lines -->
+    <div style="position:relative; text-align:center; padding:22px;">
+      <div style="font-size:clamp(28px,5vw,56px); font-weight:800; letter-spacing:.3px;">
+        <span style="color:#ffb23f;">Yogesh</span> Jakhar
       </div>
-      <div class="portrait">
-        <img src="images/portrait.png" alt="Yogesh Jakhar">
+      <div style="margin-top:6px; font-size:clamp(14px,1.9vw,20px); color:#cfdaff;">
+        From Sikar, Rajasthan, India
       </div>
-      <div class="badge">YJ</div>
     </div>
 
-    <div class="skew-edge"></div>
-  </section>
+    <!-- Portrait (center bottom) -->
+    <div style="
+      position:absolute; left:50%; transform:translateX(-50%);
+      width:min(380px,60vw); bottom:-6%;
+      border-radius:18px; overflow:hidden;
+      border:1px solid rgba(255,255,255,.15);
+      box-shadow:0 25px 50px rgba(0,0,0,.55);">
+      <img src="images/portrait.png" alt="Yogesh Jakhar" style="width:100%; height:auto; display:block;">
+    </div>
+
+    <!-- Round badge -->
+    <div style="
+      position:absolute; left:50%; transform:translateX(-50%);
+      bottom:-76px; width:84px; height:84px; border-radius:50%;
+      background:#ffffffdd; color:#0f172a; display:grid; place-items:center;
+      font-weight:800; box-shadow:0 16px 30px rgba(0,0,0,.35);">
+      YJ
+    </div>
+  </div>
+
+  <!-- Bottom skewed white strip -->
+  <div style="
+    position:absolute; left:-5vw; right:-5vw; bottom:-8vh; height:18vh;
+    background:#fff; transform:skewY(-6deg); opacity:.95; z-index:1;">
+  </div>
+</section>
 
   <!-- ===== ABOUT ===== -->
   <section id="about" class="about">

@@ -6,6 +6,7 @@
 <title>Yogesh Jakhar — Official</title>
 <meta name="description" content="Official page of Yogesh Jakhar • Links • Photos • Contact." />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
   :root{
@@ -19,7 +20,10 @@
   }
   *{box-sizing:border-box}
   html,body{height:100%}
-  body{margin:0; font-family:Poppins,system-ui,Segoe UI,Roboto,Arial,sans-serif; color:#fff; background:var(--ink); scroll-behavior:smooth}
+  body{
+    margin:0; font-family:Poppins,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+    color:#fff; background:var(--ink); scroll-behavior:smooth
+  }
 
   /* ===== NAV ===== */
   .nav{
@@ -30,50 +34,72 @@
   }
   .brand{display:flex; align-items:center; gap:10px; font-weight:800}
   .brand img{width:42px; height:42px; object-fit:contain}
+  .nav-right{display:flex; gap:24px; align-items:center}
   .nav ul{list-style:none; display:flex; gap:22px; margin:0; padding:0}
   .nav a{color:#fff; text-decoration:none; font-weight:600}
   .nav a:hover{color:#8ab6ff}
+  .icon-btns{display:flex; gap:10px}
+  .icon-btns a{
+    width:36px; height:36px; border-radius:50%;
+    display:grid; place-items:center;
+    background:#ffffff20; border:1px solid var(--stroke);
+    text-decoration:none; color:#fff; transition:transform .15s ease, background .15s ease;
+  }
+  .icon-btns a:hover{transform:translateY(-2px); background:#ffffff35}
 
- /* ===== HERO ===== */
-.hero {
-  position:relative;
-  height:100vh;
-  display:grid;
-  place-items:center;
-  padding-top:66px;
-  overflow:hidden;
-}
-.hero .bg {
-  position:absolute;
-  inset:-6px;
-  background: linear-gradient(135deg, #000000 0%, #0f172a 50%, #1e293b 100%);
-  z-index:-2;
-}
-.hero .veil {
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    0deg,
-    rgba(15,23,42,.85),
-    rgba(15,23,42,.5) 40%,
-    rgba(15,23,42,.3)
-  );
-  z-index:-1;
-}
-.frame-wrap { position:relative; width:min(920px,92vw); aspect-ratio:16/8.8; display:grid; place-items:center; }
-.frame { position:absolute; inset:6% 6%; border:12px solid rgba(255,255,255,.9); border-radius:10px; }
-.frame::before,.frame::after { content:""; position:absolute; width:16%; height:12%; border:10px solid rgba(255,255,255,.45); }
-.frame::before {left:-28px; top:-28px; border-right:none; border-bottom:none; border-radius:10px 0 0 0}
-.frame::after {right:-28px; bottom:-28px; border-left:none; border-top:none; border-radius:0 0 10px 0}
-.hero-content { position:relative; text-align:center; padding:22px }
-.name { font-size:clamp(28px,5vw,56px); font-weight:800; letter-spacing:.3px }
-.name .accent { color:var(--brand) }
-.tag { font-size:clamp(16px,2.2vw,24px); color:#e9efff; margin-top:8px }
-.subtag { font-size:clamp(14px,1.9vw,20px); color:#cfdaff; margin-top:6px }
-.portrait { position:absolute; left:50%; transform:translateX(-50%); width:min(380px,60vw); bottom:-6%; border-radius:18px; overflow:hidden; border:1px solid var(--stroke); box-shadow:0 25px 50px rgba(0,0,0,.55); }
-.portrait img {width:100%; height:auto; display:block}
-.badge { position:absolute; left:50%; transform:translateX(-50%); bottom:-76px; width:84px; height:84px; border-radius:50%; background:#ffffffdd; color:#0f172a; display:grid; place-items:center; font-weight:800; box-shadow:0 16px 30px rgba(0,0,0,.35); }
-.skew-edge { position:absolute; left:-5vw; right:-5vw; bottom:-8vh; height:18vh; background:#fff; transform:skewY(-6deg); opacity:.95; }
+  /* ===== HERO (animated gradient) ===== */
+  .hero{
+    position:relative; height:100vh; display:grid; place-items:center;
+    padding-top:66px; overflow:hidden;
+  }
+  .hero .bg{
+    position:absolute; inset:-6px;
+    background: radial-gradient(60% 60% at 15% 20%, #000 0%, #0f172a 60%, transparent 61%),
+                radial-gradient(70% 70% at 85% 25%, #1e293b 0%, #0f172a 60%, transparent 61%),
+                linear-gradient(135deg, #000000, #0f172a, #1e293b);
+    background-size: 120% 120%, 120% 120%, 200% 200%;
+    animation: gradientShift 18s ease-in-out infinite alternate;
+    z-index:-2;
+  }
+  @keyframes gradientShift{
+    0%   { background-position: 0% 0%, 100% 0%,   0% 50%;   filter:hue-rotate(0deg) }
+    50%  { background-position: 50% 30%, 60% 20%, 100% 50%; filter:hue-rotate(8deg) }
+    100% { background-position: 100% 60%, 0% 40%,  200% 50%; filter:hue-rotate(16deg) }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero .bg{ animation:none }
+  }
+  .hero .veil{
+    position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(15,23,42,.85), rgba(15,23,42,.5) 40%, rgba(15,23,42,.3));
+    z-index:-1;
+  }
+  .frame-wrap{ position:relative; width:min(920px,92vw); aspect-ratio:16/8.8; display:grid; place-items:center; }
+  .frame{ position:absolute; inset:6% 6%; border:12px solid rgba(255,255,255,.9); border-radius:10px; }
+  .frame::before,.frame::after{ content:""; position:absolute; width:16%; height:12%; border:10px solid rgba(255,255,255,.45); }
+  .frame::before{ left:-28px; top:-28px; border-right:none; border-bottom:none; border-radius:10px 0 0 0 }
+  .frame::after { right:-28px; bottom:-28px; border-left:none; border-top:none; border-radius:0 0 10px 0 }
+  .hero-content{ position:relative; text-align:center; padding:22px }
+  .name{ font-size:clamp(28px,5vw,56px); font-weight:800; letter-spacing:.3px }
+  .name .accent{ color:var(--brand) }
+  .subtag{ font-size:clamp(14px,1.9vw,20px); color:#cfdaff; margin-top:6px }
+  .portrait{
+    position:absolute; left:50%; transform:translateX(-50%);
+    width:min(380px,60vw); bottom:-6%;
+    border-radius:18px; overflow:hidden; border:1px solid var(--stroke);
+    box-shadow:0 25px 50px rgba(0,0,0,.55);
+  }
+  .portrait img{width:100%; height:auto; display:block}
+  .badge{
+    position:absolute; left:50%; transform:translateX(-50%);
+    bottom:-76px; width:84px; height:84px; border-radius:50%;
+    background:#ffffffdd; color:#0f172a; display:grid; place-items:center;
+    font-weight:800; box-shadow:0 16px 30px rgba(0,0,0,.35);
+  }
+  .skew-edge{
+    position:absolute; left:-5vw; right:-5vw; bottom:-8vh; height:18vh;
+    background:#fff; transform:skewY(-6deg); opacity:.95;
+  }
 
   /* ===== ABOUT ===== */
   .about{ background:var(--panel); border-top:1px solid var(--stroke); padding:80px 8vw 50px }
@@ -99,7 +125,7 @@
   .btn{ background:var(--cyan); border:none; color:#fff; padding:12px 16px; border-radius:12px; font-weight:800; cursor:pointer }
   .mailto{ background:linear-gradient(135deg,#22c55e,#16a34a); text-decoration:none; color:#fff; padding:12px 16px; border-radius:12px; font-weight:800 }
 
-  /* ===== FOOTER (screenshot style) ===== */
+  /* ===== FOOTER ===== */
   .site-footer{
     background:linear-gradient(135deg,#10b981,#3b82f6);
     color:#fff; text-align:center; padding-top:60px;
@@ -133,94 +159,54 @@
       <img src="images/logo.png" alt="Yogesh Jakhar Logo">
       Yogesh Jakhar
     </div>
-<!-- Font Awesome link (head section me daalna zaroori hai) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<ul class="main-menu">
-  <li>
-    <a href="#about"><i class="fas fa-user"></i> About</a>
-  </li>
-  <li>
-    <a href="#gallery"><i class="fas fa-image"></i> Gallery</a>
-  </li>
-  <li>
-    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
-  </li>
-  <li>
-    <a href="https://www.instagram.com/yogesh_jakhad/" target="_blank" rel="noopener">
-      <i class="fab fa-instagram"></i> Instagram
-    </a>
-  </li>
-  <li>
-    <a href="https://www.facebook.com/yogesh.jakhar.jerthi" target="_blank" rel="noopener">
-      <i class="fab fa-facebook"></i> Facebook
-    </a>
-  </li>
-</ul>
+    <div class="nav-right">
+      <ul class="main-menu">
+        <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="#gallery"><i class="fas fa-image"></i> Gallery</a></li>
+        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
 
-
-  </div>
-
-  <!-- ===== HERO (inline styles only) ===== -->
-<section id="home"
-  style="position:relative; min-height:100vh; padding-top:66px; overflow:hidden; display:grid; place-items:center;">
-
-  <!-- Gradient BG (no bg.jpg) -->
-  <div style="
-    position:absolute; inset:0;
-    background:linear-gradient(135deg,#000000 0%, #0f172a 50%, #1e293b 100%);
-    z-index:0;">
-  </div>
-
-  <!-- Dark veil for readability -->
-  <div style="
-    position:absolute; inset:0;
-    background:linear-gradient(0deg, rgba(15,23,42,.85), rgba(15,23,42,.5) 40%, rgba(15,23,42,.3));
-    z-index:1;">
-  </div>
-
-  <!-- Frame + content wrapper -->
-  <div style="position:relative; z-index:2; width:min(920px,92vw); aspect-ratio:16/8.8; display:grid; place-items:center;">
-
-    <!-- White frame -->
-    <div style="position:absolute; inset:6% 6%; border:12px solid rgba(255,255,255,.9); border-radius:10px;"></div>
-
-    <!-- Name + lines -->
-    <div style="position:relative; text-align:center; padding:22px;">
-      <div style="font-size:clamp(28px,5vw,56px); font-weight:800; letter-spacing:.3px;">
-        <span style="color:#ffb23f;">Yogesh</span> Jakhar
+      <!-- Small round buttons: WhatsApp + Email -->
+      <div class="icon-btns">
+        <a href="https://wa.me/919785800328?text=Hi%20Yogesh!" target="_blank" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:contactme@yogeshjakhar.com" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
       </div>
-      <div style="margin-top:6px; font-size:clamp(14px,1.9vw,20px); color:#cfdaff;">
-        From Sikar, Rajasthan, India
+
+      <!-- Social icons -->
+      <ul class="social-links">
+        <li><a href="https://www.instagram.com/yogesh_jakhad/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.facebook.com/yogesh.jakhar.jerthi" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="bg"></div>
+    <div class="veil"></div>
+
+    <div class="frame-wrap">
+      <div class="frame"></div>
+
+      <div class="hero-content">
+        <div class="name"><span class="accent">Yogesh</span> Jakhar</div>
+        <div class="subtag">From Sikar, Rajasthan, India</div>
       </div>
+
+      <div class="portrait">
+        <img src="images/portrait.png" alt="Yogesh Jakhar">
+      </div>
+
+      <div class="badge">YJ</div>
     </div>
 
-    <!-- Portrait (center bottom) -->
-    <div style="
-      position:absolute; left:50%; transform:translateX(-50%);
-      width:min(380px,60vw); bottom:-6%;
-      border-radius:18px; overflow:hidden;
-      border:1px solid rgba(255,255,255,.15);
-      box-shadow:0 25px 50px rgba(0,0,0,.55);">
-      <img src="images/portrait.png" alt="Yogesh Jakhar" style="width:100%; height:auto; display:block;">
-    </div>
-
-    <!-- Round badge -->
-    <div style="
-      position:absolute; left:50%; transform:translateX(-50%);
-      bottom:-76px; width:84px; height:84px; border-radius:50%;
-      background:#ffffffdd; color:#0f172a; display:grid; place-items:center;
-      font-weight:800; box-shadow:0 16px 30px rgba(0,0,0,.35);">
-      YJ
-    </div>
-  </div>
-
-  <!-- Bottom skewed white strip -->
-  <div style="
-    position:absolute; left:-5vw; right:-5vw; bottom:-8vh; height:18vh;
-    background:#fff; transform:skewY(-6deg); opacity:.95; z-index:1;">
-  </div>
-</section>
+    <div class="skew-edge"></div>
+  </section>
 
   <!-- ===== ABOUT ===== -->
   <section id="about" class="about">

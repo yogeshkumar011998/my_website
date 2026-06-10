@@ -6,195 +6,390 @@
 <title>Yogesh Jakhar — Official</title>
 <meta name="description" content="Official page of Yogesh Jakhar • Links • Photos • Contact." />
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
   :root{
-    --ink:#0f172a; --panel:#111827; --muted:#aeb6c7; --stroke:rgba(255,255,255,.15);
-    --brand:#ffb23f; --cyan:#0ea5e9; --green:#16a34a;
+    --bg:#0b0f1a;
+    --bg-soft:#111726;
+    --panel:#141b2d;
+    --ink:#f4f6fb;
+    --muted:#94a0bb;
+    --stroke:rgba(255,255,255,.09);
+    --stroke-2:rgba(255,255,255,.14);
+    --sand:#e7b35a;          /* warm signature accent */
+    --sand-deep:#c8923a;
+    --teal:#3ad0c4;
+    --maxw:1080px;
+    --r:18px;
   }
   *{box-sizing:border-box}
-  body{margin:0; font-family:Poppins,system-ui,Segoe UI,Roboto,Arial,sans-serif; color:#fff; background:var(--ink); scroll-behavior:smooth}
-
-  /* NAV */
-  .nav{
-    position:fixed; inset:0 0 auto 0; height:66px; padding:0 18px;
-    display:flex; align-items:center; justify-content:space-between;
-    background:rgba(15,23,42,.7); backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--stroke); z-index:50;
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
-  .brand{display:flex; align-items:center; gap:10px; font-weight:800}
-  .brand img{width:42px; height:42px; object-fit:contain}
-  .nav ul{list-style:none; display:flex; gap:22px; margin:0; padding:0}
-  .nav a{color:#fff; text-decoration:none; font-weight:600; display:flex; align-items:center; gap:6px}
-  .nav a:hover{color:var(--brand)}
+  a{color:inherit}
+  .wrap{width:min(var(--maxw),92vw); margin:0 auto}
 
-  /* HERO (no portrait) */
-  .hero{position:relative; min-height:100vh; padding-top:66px; display:grid; place-items:center; overflow:hidden}
-  .hero .bg{position:absolute; inset:0; background:linear-gradient(135deg,#000 0%,#0f172a 50%,#1e293b 100%); z-index:0}
-  .hero .veil{position:absolute; inset:0; background:linear-gradient(0deg,rgba(15,23,42,.85),rgba(15,23,42,.5) 40%,rgba(15,23,42,.3)); z-index:1}
-  .frame-wrap{position:relative; z-index:2; width:min(920px,92vw); aspect-ratio:16/8.8; display:grid; place-items:center; animation:fadeInUp 1.2s ease-out}
-  .frame{position:absolute; inset:6% 6%; border:12px solid rgba(255,255,255,.9); border-radius:10px}
-  .hero-content{text-align:center; padding:22px}
-  .name{font-size:clamp(28px,5vw,56px); font-weight:800; letter-spacing:.3px}
-  .name .accent{color:var(--brand)}
-  .subtag{font-size:clamp(14px,1.9vw,20px); color:#cfdaff; margin-top:10px}
-  .badge{position:absolute; left:50%; transform:translateX(-50%); bottom:-76px; width:84px; height:84px; border-radius:50%; background:#ffffffdd; color:#0f172a; display:grid; place-items:center; font-weight:800; box-shadow:0 16px 30px rgba(0,0,0,.35); animation:fadeIn 1.8s ease-out}
-  .skew-edge{position:absolute; left:-5vw; right:-5vw; bottom:-8vh; height:18vh; background:#fff; transform:skewY(-6deg); opacity:.95; z-index:1}
+  /* ===== NAV ===== */
+  .nav{
+    position:fixed; inset:0 0 auto 0; height:70px; z-index:60;
+    display:flex; align-items:center;
+    background:rgba(11,15,26,.55);
+    backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid transparent;
+    transition:background .3s ease, border-color .3s ease;
+  }
+  .nav.scrolled{background:rgba(11,15,26,.85); border-bottom:1px solid var(--stroke)}
+  .nav .wrap{display:flex; align-items:center; justify-content:space-between}
+  .brand{display:flex; align-items:center; gap:12px; font-family:Fraunces,serif; font-weight:700; font-size:19px; letter-spacing:.2px}
+  .brand .mark{
+    width:40px; height:40px; border-radius:12px; flex:0 0 auto;
+    display:grid; place-items:center; font-family:Fraunces,serif; font-weight:700;
+    color:#1a1206; background:linear-gradient(135deg,var(--sand),var(--sand-deep));
+    box-shadow:0 6px 18px rgba(231,179,90,.28);
+  }
+  .nav ul{list-style:none; display:flex; gap:6px; margin:0; padding:0}
+  .nav ul a{
+    text-decoration:none; font-weight:500; font-size:14.5px; color:var(--muted);
+    padding:9px 14px; border-radius:10px; display:flex; align-items:center; gap:8px;
+    transition:color .2s ease, background .2s ease;
+  }
+  .nav ul a:hover{color:var(--ink); background:rgba(255,255,255,.05)}
+  .nav .menu-btn{display:none; background:none; border:0; color:var(--ink); font-size:22px; cursor:pointer}
 
-  @keyframes fadeInUp{from{opacity:0; transform:translateY(40px)} to{opacity:1; transform:translateY(0)}}
-  @keyframes fadeIn{from{opacity:0} to{opacity:1}}
+  /* ===== HERO ===== */
+  .hero{position:relative; min-height:100svh; display:grid; place-items:center; padding:120px 0 90px; overflow:hidden}
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(60% 50% at 50% 0%, rgba(231,179,90,.16), transparent 60%),
+      radial-gradient(50% 60% at 85% 90%, rgba(58,208,196,.10), transparent 60%),
+      var(--bg);
+  }
+  /* subtle dotted texture */
+  .hero::after{
+    content:""; position:absolute; inset:0; opacity:.5;
+    background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:26px 26px;
+    -webkit-mask-image:radial-gradient(70% 70% at 50% 40%, #000, transparent);
+            mask-image:radial-gradient(70% 70% at 50% 40%, #000, transparent);
+  }
+  .hero .wrap{position:relative; z-index:2; text-align:center}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:9px;
+    font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--sand);
+    border:1px solid var(--stroke-2); padding:8px 16px; border-radius:999px;
+    background:rgba(231,179,90,.06);
+  }
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--sand); box-shadow:0 0 0 4px rgba(231,179,90,.18)}
+  .display{
+    font-family:Fraunces,serif; font-weight:600;
+    font-size:clamp(46px,9vw,104px); line-height:.98; letter-spacing:-.02em;
+    margin:26px 0 0;
+  }
+  .display .last{color:transparent; -webkit-text-stroke:1.4px var(--sand); position:relative}
+  .display .last::after{content:"Jakhar"; position:absolute; inset:0; color:var(--sand); opacity:.12}
+  .lede{max-width:560px; margin:22px auto 0; color:var(--muted); font-size:clamp(15px,2vw,18px); line-height:1.7}
+  .loc{display:inline-flex; align-items:center; gap:8px; margin-top:18px; color:var(--ink); font-weight:500; font-size:15px}
+  .loc i{color:var(--sand)}
+  .cta-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:34px}
+  .btn{
+    text-decoration:none; font-weight:600; font-size:15px; padding:14px 24px; border-radius:12px;
+    display:inline-flex; align-items:center; gap:9px; cursor:pointer; border:1px solid transparent;
+    transition:transform .18s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .btn-primary{background:linear-gradient(135deg,var(--sand),var(--sand-deep)); color:#1a1206; box-shadow:0 10px 26px rgba(231,179,90,.28)}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 16px 34px rgba(231,179,90,.36)}
+  .btn-ghost{background:rgba(255,255,255,.04); color:var(--ink); border-color:var(--stroke-2)}
+  .btn-ghost:hover{transform:translateY(-2px); background:rgba(255,255,255,.08)}
+  .scroll-hint{position:absolute; bottom:28px; left:50%; transform:translateX(-50%); color:var(--muted); font-size:12px; letter-spacing:.18em; text-transform:uppercase; display:flex; flex-direction:column; align-items:center; gap:8px; z-index:2}
+  .scroll-hint .line{width:1px; height:34px; background:linear-gradient(var(--sand),transparent); animation:drop 1.8s ease-in-out infinite}
+  @keyframes drop{0%{opacity:0; transform:scaleY(.3); transform-origin:top} 40%{opacity:1} 100%{opacity:0; transform:scaleY(1); transform-origin:top}}
 
-  /* ABOUT */
-  .about{background:var(--panel); border-top:1px solid var(--stroke); padding:80px 8vw 50px}
-  .about .title{text-transform:uppercase; letter-spacing:.18em; color:#9ec1ff; font-weight:700}
-  .about h2{font-size:36px; margin:8px 0 22px}
-  .about .grid{display:grid; gap:32px; grid-template-columns:1fr 1.2fr; align-items:center}
-  .about img{width:100%; border-radius:14px; border:1px solid var(--stroke)}
-  .about p{color:#cfd6e6; line-height:1.8}
-  .pill{display:inline-block; background:#1b2338; border:1px solid var(--stroke); padding:10px 14px; border-radius:12px; margin-top:14px; color:#bcd0ff}
+  /* ===== SECTION SHELL ===== */
+  section{position:relative}
+  .sec-head{margin-bottom:42px}
+  .sec-eyebrow{font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--sand); font-weight:600}
+  .sec-title{font-family:Fraunces,serif; font-weight:600; font-size:clamp(30px,4.4vw,46px); letter-spacing:-.01em; margin:10px 0 0}
 
-  /* GALLERY */
-  .gallery{padding:70px 8vw; background:#0f172a; text-align:center; border-top:1px solid var(--stroke)}
-  .gallery h2{margin:0 0 22px; font-size:32px}
-  .g-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px}
-  .g-grid img{width:100%; border-radius:14px; border:1px solid var(--stroke); transform:scale(.96); opacity:.85; transition:transform .28s ease, filter .28s ease, opacity .28s}
-  .g-grid img:hover{transform:scale(1.04); filter:brightness(1.06); opacity:1}
+  /* ===== ABOUT ===== */
+  .about{background:var(--bg-soft); border-top:1px solid var(--stroke); padding:96px 0}
+  .about-grid{display:grid; grid-template-columns:.95fr 1.05fr; gap:48px; align-items:center}
+  .about-photo{position:relative}
+  .about-photo img{width:100%; border-radius:var(--r); border:1px solid var(--stroke-2); display:block; aspect-ratio:4/5; object-fit:cover; background:var(--panel)}
+  .about-photo .tag{
+    position:absolute; left:-14px; bottom:24px; background:var(--panel); border:1px solid var(--stroke-2);
+    padding:14px 18px; border-radius:14px; box-shadow:0 18px 40px rgba(0,0,0,.4);
+  }
+  .about-photo .tag b{font-family:Fraunces,serif; font-size:20px; display:block}
+  .about-photo .tag span{color:var(--muted); font-size:13px}
+  .about-copy p{color:#c9d2e6; line-height:1.85; font-size:17px; margin:0 0 18px}
+  .about-copy p strong{color:var(--ink)}
+  .facts{display:flex; gap:12px; flex-wrap:wrap; margin-top:24px}
+  .fact{border:1px solid var(--stroke-2); background:rgba(255,255,255,.03); padding:10px 16px; border-radius:12px; font-size:14px; color:#cdd6ea; display:flex; align-items:center; gap:9px}
+  .fact i{color:var(--sand)}
 
-  /* CONTACT */
-  .contact{background:#0f172a; padding:60px 8vw; border-top:1px solid var(--stroke); text-align:center}
-  .muted{color:var(--muted)}
-  .row{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:10px}
-  .input{padding:12px 14px; min-width:280px; color:#fff; background:#10192e; border:1px solid var(--stroke); border-radius:12px; font-weight:700}
-  .btn{background:var(--cyan); border:none; color:#fff; padding:12px 16px; border-radius:12px; font-weight:800; cursor:pointer}
-  .mailto{background:linear-gradient(135deg,#22c55e,#16a34a); text-decoration:none; color:#fff; padding:12px 16px; border-radius:12px; font-weight:800}
-  .wa{background:#25D366 !important}
+  /* ===== GALLERY ===== */
+  .gallery{padding:96px 0; background:var(--bg)}
+  .g-grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+  .g-item{position:relative; border-radius:var(--r); overflow:hidden; border:1px solid var(--stroke-2); background:var(--panel)}
+  .g-item img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease, filter .5s ease}
+  .g-item::after{content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(11,15,26,.5),transparent 55%); opacity:0; transition:opacity .4s ease}
+  .g-item:hover img{transform:scale(1.06)}
+  .g-item:hover::after{opacity:1}
+  .g-item.lg{grid-column:span 7; aspect-ratio:16/11}
+  .g-item.sm{grid-column:span 5; aspect-ratio:16/11}
+  .g-item.third{grid-column:span 4; aspect-ratio:1/1}
 
-  /* FOOTER */
-  .site-footer{background:linear-gradient(135deg,#10b981,#3b82f6); color:#fff; text-align:center; padding-top:60px; clip-path:polygon(0 15%,100% 0,100% 100%,0 100%)}
-  .footer-logo img{width:90px; height:90px; margin-bottom:20px; background:#fff; border-radius:50%; padding:8px; box-shadow:0 4px 18px rgba(0,0,0,.3)}
-  .footer-info{display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin:30px auto; max-width:980px}
-  .footer-info .item{display:flex; gap:12px; text-align:left; min-width:240px; align-items:flex-start}
-  .footer-info .icon{font-size:28px}
-  .footer-info h4{margin:0 0 4px; font-size:18px}
-  .footer-info p{margin:0; font-size:14px}
-  .footer-bottom{border-top:1px solid rgba(255,255,255,.3); margin-top:24px; padding:14px 0; font-size:13px}
-  .footer-info a{color:#fff; text-decoration:none}
-  .footer-info a:hover{text-decoration:underline}
+  /* ===== CONTACT ===== */
+  .contact{padding:96px 0; background:var(--bg-soft); border-top:1px solid var(--stroke)}
+  .contact-card{
+    background:linear-gradient(160deg, rgba(231,179,90,.07), rgba(58,208,196,.04)), var(--panel);
+    border:1px solid var(--stroke-2); border-radius:24px; padding:46px; text-align:center;
+  }
+  .contact-card p{color:var(--muted); max-width:460px; margin:10px auto 0; line-height:1.7}
+  .mail-box{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:30px auto 0; max-width:520px}
+  .mail-input{
+    flex:1; min-width:240px; padding:14px 16px; color:var(--ink); background:rgba(0,0,0,.25);
+    border:1px solid var(--stroke-2); border-radius:12px; font-weight:500; font-size:15px; text-align:center;
+  }
+  .mail-input:focus{outline:2px solid var(--sand); outline-offset:2px}
+  .copy-btn{background:rgba(255,255,255,.06); border:1px solid var(--stroke-2); color:var(--ink); padding:0 20px; border-radius:12px; font-weight:600; cursor:pointer; transition:background .2s ease}
+  .copy-btn:hover{background:rgba(255,255,255,.12)}
+  .socials{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:26px}
+  .social{
+    width:52px; height:52px; border-radius:14px; display:grid; place-items:center; font-size:20px;
+    text-decoration:none; color:var(--ink); border:1px solid var(--stroke-2); background:rgba(255,255,255,.03);
+    transition:transform .18s ease, background .25s ease, color .25s ease;
+  }
+  .social:hover{transform:translateY(-3px)}
+  .social.wa:hover{background:#25D366; color:#06381d; border-color:transparent}
+  .social.ig:hover{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888); color:#fff; border-color:transparent}
+  .social.fb:hover{background:#1877f2; color:#fff; border-color:transparent}
+  .social.mail:hover{background:var(--sand); color:#1a1206; border-color:transparent}
 
-  /* REVEAL (scroll animations) */
-  .reveal{opacity:0; transform:translateY(30px); transition:opacity .7s ease, transform .7s ease}
-  .reveal.show{opacity:1; transform:translateY(0)}
-  .zoom{transform:scale(.94); opacity:0; transition:opacity .8s ease, transform .8s ease}
-  .zoom.show{opacity:1; transform:scale(1)}
+  /* ===== FOOTER ===== */
+  .site-footer{background:var(--bg); padding:54px 0 30px; border-top:1px solid var(--stroke)}
+  .foot-grid{display:flex; justify-content:space-between; gap:30px; flex-wrap:wrap; align-items:flex-start}
+  .foot-brand{font-family:Fraunces,serif; font-size:22px; display:flex; align-items:center; gap:12px}
+  .foot-info{display:flex; gap:40px; flex-wrap:wrap}
+  .foot-info .item{display:flex; gap:12px; align-items:flex-start; min-width:200px}
+  .foot-info .ic{width:38px; height:38px; border-radius:10px; display:grid; place-items:center; background:rgba(231,179,90,.1); color:var(--sand); flex:0 0 auto}
+  .foot-info h4{margin:0 0 4px; font-size:14px}
+  .foot-info p, .foot-info a{margin:0; font-size:14px; color:var(--muted); text-decoration:none}
+  .foot-info a:hover{color:var(--sand)}
+  .foot-bottom{margin-top:36px; padding-top:22px; border-top:1px solid var(--stroke); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:var(--muted); font-size:13px}
+
+  /* ===== REVEAL ===== */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.show{opacity:1; transform:none}
+  .reveal[data-d="1"]{transition-delay:.08s}
+  .reveal[data-d="2"]{transition-delay:.16s}
+  .reveal[data-d="3"]{transition-delay:.24s}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:860px){
+    .nav ul{
+      position:fixed; inset:70px 0 auto 0; flex-direction:column; gap:0;
+      background:rgba(11,15,26,.97); backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--stroke); padding:8px 6vw 18px;
+      transform:translateY(-120%); transition:transform .3s ease;
+    }
+    .nav ul.open{transform:translateY(0)}
+    .nav ul a{padding:14px 8px; font-size:16px; border-radius:0; border-bottom:1px solid var(--stroke)}
+    .nav .menu-btn{display:block}
+    .about-grid{grid-template-columns:1fr; gap:34px}
+    .about-photo .tag{left:14px}
+    .g-item.lg,.g-item.sm{grid-column:span 12}
+    .g-item.third{grid-column:span 6}
+    .contact-card{padding:32px 22px}
+  }
+  @media (max-width:480px){
+    .g-item.third{grid-column:span 12}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important; scroll-behavior:auto}
+    .reveal{opacity:1; transform:none; transition:none}
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<div class="nav">
-  <div class="brand">
-    <img src="images/logo.png" alt="Yogesh Jakhar Logo"> Yogesh Jakhar
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#home" style="text-decoration:none">
+      <span class="mark">YJ</span> Yogesh Jakhar
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+    <ul id="menu">
+      <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+      <li><a href="#gallery"><i class="fas fa-image"></i> Gallery</a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
   </div>
-  <ul class="main-menu">
-    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-    <li><a href="#gallery"><i class="fas fa-image"></i> Gallery</a></li>
-    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-  </ul>
-</div>
+</nav>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="bg"></div>
-  <div class="veil"></div>
-  <div class="frame-wrap">
-    <div class="frame"></div>
-    <div class="hero-content">
-      <div class="name"><span class="accent">Yogesh</span> Jakhar</div>
-      <div class="subtag"><i class="fa-solid fa-location-dot" style="color:#ffb23f;margin-right:8px"></i>Sikar, Rajasthan, India</div>
+<header class="hero" id="home">
+  <div class="wrap">
+    <span class="eyebrow reveal"><span class="dot"></span> Official Page</span>
+    <h1 class="display reveal" data-d="1">
+      Yogesh <span class="last">Jakhar</span>
+    </h1>
+    <p class="lede reveal" data-d="2">
+      Welcome to my official page — a small corner of the web with my links, photos, and the easiest ways to reach me.
+    </p>
+    <div class="loc reveal" data-d="2"><i class="fa-solid fa-location-dot"></i> Sikar, Rajasthan, India</div>
+    <div class="cta-row reveal" data-d="3">
+      <a class="btn btn-primary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Get in touch</a>
+      <a class="btn btn-ghost" href="#gallery"><i class="fa-solid fa-images"></i> View gallery</a>
     </div>
-    <div class="badge">YJ</div>
   </div>
-  <div class="skew-edge"></div>
-</section>
+  <div class="scroll-hint"><span class="line"></span> Scroll</div>
+</header>
 
 <!-- ABOUT -->
-<section id="about" class="about">
-  <div class="title reveal">About</div>
-  <h2 class="reveal">Rajasthan • India</h2>
-  <div class="grid">
-    <img class="zoom" src="images/2.jpg" alt="About image">
-    <div class="reveal">
-      <p>
-        I’m <strong>Yogesh Jakhar</strong>, based in <b>Sikar, Rajasthan</b>.  
-        This is my official page.
-      </p>
-  
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <img src="images/2.jpg" alt="Yogesh Jakhar">
+        <div class="tag"><b>Yogesh Jakhar</b><span>Sikar, Rajasthan</span></div>
+      </div>
+      <div class="about-copy">
+        <div class="sec-head reveal" data-d="1">
+          <div class="sec-eyebrow">About</div>
+          <h2 class="sec-title">A little about me</h2>
+        </div>
+        <p class="reveal" data-d="1">
+          I'm <strong>Yogesh Jakhar</strong>, based in <strong>Sikar, Rajasthan</strong>. This page is my official home on the web — the place to find my photos, links, and contact details all in one spot.
+        </p>
+        <p class="reveal" data-d="2">
+          Whether you're here to connect, collaborate, or just say hello, you're always welcome. Reach out through any of the channels below.
+        </p>
+        <div class="facts reveal" data-d="3">
+          <span class="fact"><i class="fa-solid fa-location-dot"></i> Sikar, Rajasthan</span>
+          <span class="fact"><i class="fa-solid fa-flag"></i> India</span>
+          <span class="fact"><i class="fa-solid fa-circle-check"></i> Official</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- GALLERY -->
-<section id="gallery" class="gallery">
-  <h2 class="reveal">Photo Gallery</h2>
-  <div class="g-grid">
-    <img class="zoom" src="images/1.jpg" alt="Gallery 1">
-    <img class="zoom" src="images/2.jpg" alt="Gallery 2">
-    <img class="zoom" src="images/5.jpg" alt="Gallery 3">
-    <img class="zoom" src="images/4.jpg" alt="Gallery 4">
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center">
+      <div class="sec-eyebrow">Gallery</div>
+      <h2 class="sec-title">Photo gallery</h2>
+    </div>
+    <div class="g-grid">
+      <div class="g-item lg reveal"><img src="images/1.jpg" alt="Gallery photo 1"></div>
+      <div class="g-item sm reveal" data-d="1"><img src="images/2.jpg" alt="Gallery photo 2"></div>
+      <div class="g-item third reveal"><img src="images/5.jpg" alt="Gallery photo 3"></div>
+      <div class="g-item third reveal" data-d="1"><img src="images/4.jpg" alt="Gallery photo 4"></div>
+      <div class="g-item third reveal" data-d="2"><img src="images/1.jpg" alt="Gallery photo 5"></div>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact">
-  <h2 class="reveal">Contact</h2>
-  <div class="muted reveal">Feel free to reach out anytime.</div>
-  <div class="row reveal">
-    <input class="input" id="email" value="contactme@yogeshjakhar.com" readonly>
-    <button class="btn" onclick="copyEmail()">Copy</button>
-    <a class="mailto" href="mailto:contactme@yogeshjakhar.com"><i class="fa-solid fa-envelope"></i> Send Mail</a>
-    <a class="mailto wa" href="https://wa.me/919785800328" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    <a class="mailto wa"href="https://www.instagram.com/yogesh_jakhad/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-    <a class="mailto wa"href="https://www.facebook.com/yogesh.jakhar.jerthi" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div class="sec-eyebrow">Contact</div>
+      <h2 class="sec-title">Let's connect</h2>
+      <p>Feel free to reach out anytime — I'd love to hear from you.</p>
+
+      <div class="mail-box">
+        <input class="mail-input" id="email" value="contactme@yogeshjakhar.com" readonly aria-label="Email address">
+        <button class="copy-btn" id="copyBtn" onclick="copyEmail()">Copy</button>
+      </div>
+
+      <div class="socials">
+        <a class="social mail" href="mailto:contactme@yogeshjakhar.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a class="social wa" href="https://wa.me/919785800328" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a class="social ig" href="https://www.instagram.com/yogesh_jakhad/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a class="social fb" href="https://www.facebook.com/yogesh.jakhar.jerthi" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  <div class="footer-top">
-    <div class="footer-logo zoom">
-      <img src="images/logo.png" alt="Yogesh Jakhar Logo">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand"><span class="mark" style="width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-family:Fraunces,serif;font-weight:700;color:#1a1206;background:linear-gradient(135deg,var(--sand),var(--sand-deep))">YJ</span> Yogesh Jakhar</div>
+      <div class="foot-info">
+        <div class="item"><span class="ic"><i class="fa-solid fa-location-dot"></i></span><div><h4>Address</h4><p>Sikar, Rajasthan, India</p></div></div>
+        <div class="item"><span class="ic"><i class="fa-solid fa-phone"></i></span><div><h4>Phone</h4><p>+91 97858 00328</p></div></div>
+        <div class="item"><span class="ic"><i class="fa-solid fa-envelope"></i></span><div><h4>Email</h4><a href="mailto:contactme@yogeshjakhar.com">contactme@yogeshjakhar.com</a></div></div>
+      </div>
     </div>
-    <div class="footer-info">
-      <div class="item reveal"><div class="icon">📍</div><div><h4>Address</h4><p>Sikar, Rajasthan, India</p></div></div>
-      <div class="item reveal"><div class="icon">📞</div><div><h4>Phone</h4><p>+91-9785800328</p></div></div>
-      <div class="item reveal"><div class="icon">✉️</div><div><h4>Email</h4><p><a href="mailto:contactme@yogeshjakhar.com">contactme@yogeshjakhar.com</a></p></div></div>
+    <div class="foot-bottom">
+      <span>© <span id="y"></span> Yogesh Jakhar. All rights reserved.</span>
+      <span>Sikar • Rajasthan • India</span>
     </div>
   </div>
-  <div class="footer-bottom">© <span id="y"></span> Yogesh Jakhar. All rights reserved.</div>
 </footer>
 
 <script>
   // year
   document.getElementById('y').textContent = new Date().getFullYear();
 
-  // copy email
-  function copyEmail(){
-    const i = document.getElementById('email');
-    i.select(); i.setSelectionRange(0, i.value.length);
-    try{ document.execCommand('copy'); }catch(e){}
-    const old = i.value; i.value = 'Copied! ✓'; setTimeout(()=> i.value = old, 900);
-  }
+  // nav scroll state
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
 
-  // IntersectionObserver: reveal on scroll
-  const revealEls = document.querySelectorAll('.reveal, .zoom');
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
+  // mobile menu
+  const menu = document.getElementById('menu');
+  const menuBtn = document.getElementById('menuBtn');
+  menuBtn.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // copy email (modern API with fallback)
+  async function copyEmail(){
+    const input = document.getElementById('email');
+    const btn = document.getElementById('copyBtn');
+    const text = input.value;
+    try{
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(text);
+      }else{
+        input.select(); input.setSelectionRange(0, text.length);
+        document.execCommand('copy');
+      }
+      const old = btn.textContent;
+      btn.textContent = 'Copied ✓';
+      setTimeout(() => btn.textContent = old, 1200);
+    }catch(e){
+      btn.textContent = 'Press Ctrl+C';
+      setTimeout(() => btn.textContent = 'Copy', 1500);
+    }
+  }
+  window.copyEmail = copyEmail;
+
+  // reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
       if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
     });
-  }, {threshold:.18});
-  revealEls.forEach(el=>io.observe(el));
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
